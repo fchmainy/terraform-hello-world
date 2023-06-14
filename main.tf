@@ -62,10 +62,10 @@ variable "nginx_repo_key" {
 
 data "aws_ami" "f5_ami" {
   most_recent = true
-  owners      = ["679593333241"]
+  owners      = ["aws-marketplace"]
 
   filter {
     name   = "description"
-    values = ["F5 BIGIP-16* PAYG-Best 200Mbps*"]
+    values = ["*F5 BIGIP-16* PAYG-Best*"]
   }
 }
