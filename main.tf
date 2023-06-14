@@ -36,6 +36,10 @@ output "nginx_repo_key" {
   value = "${base64decode(var.nginx_repo_key)}"
 }
 
+output "bigip" {
+  value = data.aws_ami.f5_ami.id
+}
+
 variable "namespace" {
   type = string
   description = "F5 XC namespace. stripped from the email address"
