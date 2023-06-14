@@ -1,5 +1,11 @@
 terraform {
   required_version = ">= 0.13"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = ">3.8.0"
+    }
+    
 }
 
 output "hello_world" {
@@ -48,4 +54,14 @@ variable "nginx_repo_cert" {
 }
 variable "nginx_repo_key" {
   type = string
+}
+
+data "aws_ami" "f5_ami" {
+  most_recent = true
+  owners      = ["679593333241"]
+
+  filter {
+    name   = "description"
+    values = ["F5 BIGIP-16* PAYG-Best 200Mbps*"]
+  }
 }
