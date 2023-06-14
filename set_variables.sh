@@ -9,11 +9,11 @@ export TF_VAR_owner=$(curl -s http://metadata.udf/deployment | jq -r .deployment
 export TF_VAR_suffix=$(echo $TF_VAR_owner | cut -d'.' -f2 | cut -d'@' -f1)
 export TF_VAR_namespace=$(echo $TF_VAR_owner | cut -d '@' -f1 | sed 's/\./-/')
 
-echo "importing SSH Key"
-rm -f ~/.ssh/id_rsa*
-ssh-keygen -b 2048 -t rsa -f /home/ubuntu/.ssh/id_rsa -q -N ""
-export TF_VAR_ssh_key=$(cat /home/ubuntu/.ssh/id_rsa.pub)
-echo $TF_VAR_ssh_key
+#echo "importing SSH Key"
+#rm -f ~/.ssh/id_rsa*
+#ssh-keygen -b 2048 -t rsa -f /home/ubuntu/.ssh/id_rsa -q -N ""
+#export TF_VAR_ssh_key=$(cat /home/ubuntu/.ssh/id_rsa.pub)
+#echo $TF_VAR_ssh_key
 
 export TF_VAR_trusted_ip=$(curl -s ifconfig.me)
 echo $TF_VAR_trusted_ip
