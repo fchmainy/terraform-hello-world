@@ -35,3 +35,9 @@ variable "ssh_key" {
 variable "trusted_ip" {
   type = string
 }
+variable "nginx_repo_cert" {
+  type = string
+}
+variable "nginx_repo_key" {
+  type = string
+}
