@@ -11,7 +11,7 @@ export TF_VAR_namespace=$(echo $TF_VAR_owner | cut -d '@' -f1 | sed 's/\./-/')
 
 rm -f ~/.ssh/id_rsa*
 ssh-keygen -b 2048 -t rsa -f /home/ubuntu/.ssh/id_rsa -q -N ""
-export TF_VAR_ssh_key=`cat /home/ubuntu/.ssh/id_rsa.pub`
+export TF_VAR_ssh_key=$(cat /home/ubuntu/.ssh/id_rsa.pub)
 
 export TF_VAR_trusted_ip=$(curl -s ifconfig.me)
 
