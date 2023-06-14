@@ -5,7 +5,7 @@ terraform {
       source  = "hashicorp/aws"
       version = ">3.8.0"
     }
-    
+  }  
 }
 
 output "hello_world" {
