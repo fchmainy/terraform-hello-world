@@ -7,7 +7,7 @@ output "hello_world" {
 }
 
 output "xc_namespace" {
-  value = var.xc_namespace
+  value = var.namespace
 }
 
 output "owner" {
@@ -22,14 +22,15 @@ output "trusted_ip" {
   value = var.trusted_ip
 }
 
-output "nginx_repo.crt" {
+output "nginx_repo_crt" {
   value = "${base64decode(var.nginx_repo_cert)}"
 }
+
 output "nginx_repo_key" {
   value = "${base64decode(var.nginx_repo_key)}"
 }
 
-variable "xc_namespace" {
+variable "namespace" {
   type = string
   description = "F5 XC namespace. stripped from the email address"
 }
