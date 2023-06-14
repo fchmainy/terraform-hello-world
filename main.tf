@@ -22,6 +22,13 @@ output "trusted_ip" {
   value = var.trusted_ip
 }
 
+output "nginx_repo.crt" {
+  value = "${base64decode(var.nginx_repo_cert)}"
+}
+output "nginx_repo_key" {
+  value = "${base64decode(var.nginx_repo_key)}"
+}
+
 variable "xc_namespace" {
   type = string
   description = "F5 XC namespace. stripped from the email address"
