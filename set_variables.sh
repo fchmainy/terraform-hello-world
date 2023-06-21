@@ -1,13 +1,4 @@
-# Cloud Account Env Variables
-export AWS_REGION=$(curl -s metadata.udf/cloudAccounts | jq -r .cloudAccounts[0].regions[7])
-export AWS_ACCESS_KEY_ID=$(curl -s metadata.udf/cloudAccounts | jq -r .cloudAccounts[0].apiKey)
-export AWS_SECRET_ACCESS_KEY=$(curl -s metadata.udf/cloudAccounts | jq -r .cloudAccounts[0].apiSecret)
-export VOL_API_URL=$(curl -s http://metadata.udf/deploymentTags | jq -r .F5XCapiURL)
 
-# Cloud Deployment Env Variables
-export TF_VAR_owner=$(curl -s http://metadata.udf/deployment | jq -r .deployment.deployer) 
-export TF_VAR_suffix=$(echo $TF_VAR_owner | cut -d'.' -f2 | cut -d'@' -f1)
-export TF_VAR_namespace=$(echo $TF_VAR_owner | cut -d '@' -f1 | sed 's/\./-/')
 
 #echo "importing SSH Key"
 #rm -f ~/.ssh/id_rsa*
